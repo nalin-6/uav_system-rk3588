@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 @dataclass(slots=True)
 class FusionConfig:
     require_gimbal_feedback: bool = True
+    lock_lost_tolerance: int = 5
 
 
 @dataclass(slots=True)

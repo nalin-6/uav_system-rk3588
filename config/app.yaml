@@ -19,6 +19,10 @@ runtime:
   # 超过此时间未收到 YOLO 数据，则认为感知数据过期，单位：秒。
   perception_timeout_sec: 1.0
 
+  # 目标锁定后，允许连续丢失多少帧仍保持锁定（滞后容错）。
+  # 与 yolo.yaml 的 max_lost_frames 配合，避免 RKNN 间歇性漏检导致 target_locked 频繁跳变。
+  lock_lost_tolerance: 5
+
   # true：控制放行需要有效云台反馈；false：允许在无云台反馈时运行。
   require_gimbal_feedback: true
 

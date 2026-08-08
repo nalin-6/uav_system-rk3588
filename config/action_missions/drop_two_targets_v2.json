@@ -111,27 +111,27 @@
             "payload_id": "payload_1",
             "servo_outputs": [
               {
-                "channel": 8,
+                "channel": 5,
                 "release_pwm": 1750,
                 "hold_pwm": 1250
               }
             ],
             "priority": 3,
-            "payload_forward_m": -0.06,
-            "payload_right_m": 0.0
+            "payload_forward_m": 0.0,
+            "payload_right_m": 0.06
           },
           {
             "payload_id": "payload_2",
             "servo_outputs": [
               {
-                "channel": 9,
+                "channel": 6,
                 "release_pwm": 1815,
                 "hold_pwm": 1185
               }
             ],
             "priority": 3,
-            "payload_forward_m": 0.06,
-            "payload_right_m": 0.0
+            "payload_forward_m": 0.0,
+            "payload_right_m": -0.06
           }
         ],
         "approach_altitude_m": 2.5,

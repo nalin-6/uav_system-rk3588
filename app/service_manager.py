@@ -156,7 +156,8 @@ class ServiceManager:
         self.link_manager: LinkManager | None = None
         self.fusion_manager = FusionManager(
             FusionConfig(
-                require_gimbal_feedback=bool(config.runtime.require_gimbal_feedback)
+                require_gimbal_feedback=bool(config.runtime.require_gimbal_feedback),
+                lock_lost_tolerance=int(config.runtime.lock_lost_tolerance),
             )
         )
 

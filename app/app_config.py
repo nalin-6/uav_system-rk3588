@@ -119,6 +119,7 @@ class AppRuntimeConfig:
     yolo_udp_port: int
     loop_hz: float
     perception_timeout_sec: float
+    lock_lost_tolerance: int
     print_rate_hz: float
     require_gimbal_feedback: bool
     log_level: str
@@ -362,6 +363,7 @@ def load_app_config(args: argparse.Namespace) -> AppConfig:
             if args.perception_timeout_sec is not None
             else float(runtime_data.get("perception_timeout_sec", 1.0))
         ),
+        lock_lost_tolerance=int(runtime_data.get("lock_lost_tolerance", 5)),
         print_rate_hz=(
             args.print_rate_hz
             if args.print_rate_hz is not None
