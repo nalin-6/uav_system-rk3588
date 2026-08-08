@@ -25,7 +25,7 @@ def test_dispatcher_dispatches_set_servo():
     """ActionDispatcher dispatches set_servo (no link_manager → dry-run)."""
     dispatcher = ActionDispatcher()
     result = dispatcher._dispatch_action(
-        {"action_type": "set_servo", "params": {"channel": 9, "pwm": 1500}},
+        {"action_type": "set_servo", "params": {"channel": 6, "pwm": 1500}},
         link_manager=None,
     )
     # set_servo may return status=error without link_manager, but must not be "unsupported"

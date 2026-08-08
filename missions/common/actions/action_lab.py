@@ -244,20 +244,20 @@ def action_lab_specs() -> list[dict[str, Any]]:
             "description": (
                 "Dispatch MAV_CMD_DO_SET_SERVO to flight-controller SERVO outputs. "
                 "servo_outputs are per-SERVO output channel/PWM settings, not RC input channels. "
-                "ch8 = rear payload, SERVO8, hold_pwm=1250, release_pwm=1750. "
-                "ch9 = front payload, SERVO9, hold_pwm=1185, release_pwm=1815. "
-                "Action Lab default only releases ch8 for safety; use Action Mission template for dual-target release."
+                "ch5 = rear payload, SERVO5, hold_pwm=1250, release_pwm=1750. "
+                "ch6 = front payload, SERVO6, hold_pwm=1185, release_pwm=1815. "
+                "Action Lab default only releases ch5 for safety; use Action Mission template for dual-target release."
             ),
             "default_params": {
                 "servo_outputs": [
-                    {"channel": 8, "release_pwm": 1750, "hold_pwm": 1250},
+                    {"channel": 5, "release_pwm": 1750, "hold_pwm": 1250},
                 ],
                 "payload_id": "payload_1",
                 "target_id": "target_debug",
                 "release_wait_s": 1.0,
                 "release_wait_updates": 5,
                 "priority": 3,
-                "key": "payload_release_ch8_debug",
+                "key": "payload_release_ch5_debug",
             },
         },
         {

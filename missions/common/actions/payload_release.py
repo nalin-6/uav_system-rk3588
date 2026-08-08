@@ -222,7 +222,7 @@ class PayloadReleaseAction(ActionModule):
             return outputs
 
         if params.get("servo_channels") is None and params.get("channels") is None and params.get("channel") is None:
-            return [{"channel": 8, "release_pwm": 1200, "hold_pwm": 1700}]
+            return [{"channel": 5, "release_pwm": 1200, "hold_pwm": 1700}]
 
         release_pwm = self._pwm(params, "release_pwm")
         hold_pwm = self._pwm(params, "hold_pwm")
@@ -244,7 +244,7 @@ class PayloadReleaseAction(ActionModule):
         elif params.get("channel") is not None:
             raw_channels = [params["channel"]]
         else:
-            raw_channels = [8]
+            raw_channels = [5]
 
         if not raw_channels:
             raise ValueError("channels must be non-empty")

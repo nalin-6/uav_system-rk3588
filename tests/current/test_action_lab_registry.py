@@ -101,7 +101,8 @@ def test_payload_release_spec_defaults_to_servo_output_8() -> None:
     payload_spec = next(item for item in action_lab_specs() if item["name"] == "payload_release")
 
     assert payload_spec["default_params"]["servo_outputs"] == [
-        {"channel": 8, "release_pwm": 1750, "hold_pwm": 1250},
+        {"channel": 5, "release_pwm": 1750, "hold_pwm": 1250},
+        {"channel": 6, "release_pwm": 1750, "hold_pwm": 1250},
     ]
     assert "SERVO output" in payload_spec["description"]
 

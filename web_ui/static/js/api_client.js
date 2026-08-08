@@ -139,6 +139,16 @@ window.UavApi = (function () {
   }
 
   // ------------------------------------------------------------------
+  // Field Profile Auto-Create
+  // ------------------------------------------------------------------
+  function autoCreateFieldProfile(points, profileId, name) {
+    return request("/api/field-profiles/auto-create", {
+      method: "POST",
+      body: JSON.stringify({points: points, profile_id: profileId, name: name}),
+    });
+  }
+
+  // ------------------------------------------------------------------
   // Manual / Localization
   // ------------------------------------------------------------------
   function manualStepMove(direction, stepM) {
@@ -234,6 +244,8 @@ window.UavApi = (function () {
     getFieldReferenceStatus: getFieldReferenceStatus,
     resetFieldReference: resetFieldReference,
     freezeFieldReference: freezeFieldReference,
+
+    autoCreateFieldProfile: autoCreateFieldProfile,
 
     manualStepMove: manualStepMove,
     clearLocalization: clearLocalization,

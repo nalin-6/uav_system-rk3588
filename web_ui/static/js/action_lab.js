@@ -142,7 +142,8 @@
     _dom().$("actionParams").value = cache[spec.name];
     var hint = spec.description || spec.label || spec.name;
     if (spec.name === "payload_release") {
-      hint = hint + " servo_outputs 是飞控 SERVO 输出通道配置，不是遥控器 RC 输入通道。舵机插在输出 8 就填 channel=8。";
+      hint = hint + " servo_outputs 是飞控 SERVO 输出通道配置，不是遥控器 RC 输入通道。舵机插在输出 5 就填 channel=5。";
+
     } else if (["goto_waypoint", "survey_area", "multi_view_localize", "recon_scan"].indexOf(spec.name) >= 0) {
       var params = spec.default_params || {};
       try { params = JSON.parse(cache[spec.name]); } catch (e) { /* use default */ }

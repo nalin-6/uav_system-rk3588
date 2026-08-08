@@ -52,11 +52,11 @@ sitl:
 real:
   # 可选值：serial / udp / tcp / eth。
   # RK3588 与飞控网口直连时通常使用 eth。
-  connection_type: eth
+  connection_type: serial
 
   # connection_type=serial 时使用。
-  serial_port: /dev/ttyUSB0
-  baudrate: 57600
+  serial_port: /dev/ttyACM0
+  baudrate: 115200
 
   # connection_type=udp 时使用。
   # udp_mode 可选值：udpin / udpout。

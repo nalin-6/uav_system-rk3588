@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 import os
 from pathlib import Path
 import subprocess
@@ -138,6 +139,11 @@ class VideoSource:
                 return None, time.time()
             self.consumed_sequence = self.camera_sequence
             return self.camera_frame.copy(), self.camera_timestamp
+
+    @staticmethod
+    def _helper_python() -> str:
+        import shutil
+        return shutil.which('python3') or '/usr/bin/python3'
 
     def _open_udp_port_source(self, udp_port: int) -> None:
         helper_path = Path(__file__).with_name("udp_gst_bridge_helper.py")

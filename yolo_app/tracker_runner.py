@@ -5,11 +5,11 @@ from dataclasses import dataclass
 try:
     from .config import AppConfig
     from .models import Track
-    from .rknn_detector import Detection, RknnDetector
+    from .hailo_detector import Detection, HailoDetector as RknnDetector
 except ImportError:
     from config import AppConfig
     from models import Track
-    from rknn_detector import Detection, RknnDetector
+    from hailo_detector import Detection, HailoDetector as RknnDetector
 
 
 class TrackerRunner:

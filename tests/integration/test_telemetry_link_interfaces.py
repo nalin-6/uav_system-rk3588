@@ -278,19 +278,19 @@ def test_stop_body_velocity_is_not_affected_by_stop_and_clear() -> None:
 
 def test_set_servo_queues_action_command_with_correct_channel_pwm_priority() -> None:
     manager = LinkManager(_config())
-    manager.set_servo(channel=8, pwm=1200, priority=3)
+    manager.set_servo(channel=5, pwm=1200, priority=3)
 
     cmd = _cq(manager).get_next_action()
     assert cmd is not None
     assert cmd.action_type == ActionType.SET_SERVO
-    assert cmd.params["channel"] == 8
+    assert cmd.params["channel"] == 5
     assert cmd.params["pwm"] == 1200
     assert cmd.priority == 3
 
 
 def test_set_servo_default_priority_is_3() -> None:
     manager = LinkManager(_config())
-    manager.set_servo(channel=9, pwm=1900)
+    manager.set_servo(channel=6, pwm=1900)
 
     cmd = _cq(manager).get_next_action()
     assert cmd.priority == 3

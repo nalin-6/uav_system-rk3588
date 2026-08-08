@@ -44,17 +44,17 @@ def test_select_drop_targets_allow_fewer_accepts_one_target() -> None:
         target_count=2,
         allow_fewer=True,
         single_target_servo_outputs=[
-            {"channel": 8, "release_pwm": 1750},
-            {"channel": 9, "release_pwm": 1815},
+            {"channel": 5, "release_pwm": 1750},
+            {"channel": 6, "release_pwm": 1815},
         ],
-        multi_target_first_servo_outputs=[{"channel": 8, "release_pwm": 1750}],
+        multi_target_first_servo_outputs=[{"channel": 5, "release_pwm": 1750}],
     )
 
     assert result.done is True
     assert result.failed is False
     assert result.detail["selected_count"] == 1
     assert result.detail["allow_fewer"] is True
-    assert [item["channel"] for item in result.detail["first_release_servo_outputs"]] == [8, 9]
+    assert [item["channel"] for item in result.detail["first_release_servo_outputs"]] == [5, 6]
 
 
 def test_select_drop_targets_two_targets_uses_first_payload_only() -> None:
@@ -65,12 +65,12 @@ def test_select_drop_targets_two_targets_uses_first_payload_only() -> None:
         ],
         target_count=2,
         allow_fewer=True,
-        single_target_servo_outputs=[{"channel": 8}, {"channel": 9}],
-        multi_target_first_servo_outputs=[{"channel": 8}],
+        single_target_servo_outputs=[{"channel": 5}, {"channel": 6}],
+        multi_target_first_servo_outputs=[{"channel": 5}],
     )
 
     assert result.done is True
-    assert [item["channel"] for item in result.detail["first_release_servo_outputs"]] == [8]
+    assert [item["channel"] for item in result.detail["first_release_servo_outputs"]] == [5]
 
 
 def test_select_drop_targets_uses_xy_as_local_xy_fallback() -> None:

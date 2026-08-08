@@ -228,7 +228,7 @@ def _smoke_blackboard() -> MissionBlackboard:
                 {"id": "b2", "local_x": -1.0, "local_y": 31.0},
             ],
             "first_release_servo_outputs": [
-                {"channel": 8, "release_pwm": 1750, "hold_pwm": 1250},
+                {"channel": 5, "release_pwm": 1750, "hold_pwm": 1250},
             ],
             "target_slots": [
                 {

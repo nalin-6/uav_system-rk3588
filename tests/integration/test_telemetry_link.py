@@ -394,13 +394,13 @@ def test_local_position_ned_updates_raw_local_position_without_overwriting_relat
 def test_dispatch_set_servo_queues_action_command() -> None:
     manager = LinkManager(_config(data_source="sitl", active_source="sitl"))
 
-    result = dispatch_text_command(manager, "set_servo 9 1900")
+    result = dispatch_text_command(manager, "set_servo 6 1900")
 
     action = manager.runtimes["sitl"].command_queue.get_next_action()
     assert result.ok is True
     assert action is not None
     assert action.action_type == ActionType.SET_SERVO
-    assert action.params == {"channel": 9, "pwm": 1900}
+    assert action.params == {"channel": 6, "pwm": 1900}
 
 
 def test_dispatch_set_relay_queues_action_command() -> None:
@@ -474,13 +474,13 @@ def test_command_sender_set_servo_uses_mav_cmd_do_set_servo() -> None:
     sender._send_action(
         ActionCommand(
             action_type=ActionType.SET_SERVO,
-            params={"channel": 9, "pwm": 1900},
+            params={"channel": 6, "pwm": 1900},
         )
     )
 
     call = client.master.mav.command_long_calls[-1]
     assert call[2] == mavutil.mavlink.MAV_CMD_DO_SET_SERVO
-    assert call[4:11] == (9.0, 1900.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    assert call[4:11] == (6.0, 1900.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
 
 def test_command_sender_set_relay_uses_mav_cmd_do_set_relay() -> None:
